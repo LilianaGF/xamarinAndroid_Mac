@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, Click Me!</string>
+    <string name="app_name">Task App</string>
+    <string name="New">New</string>
+    <string name="ShowAll">Show All</string>
+    <string name="TaskToDo">Task To Do</string>
+    <string name="TaskDoing">Task Doing</string>
+    <string name="TaskDone">Task Done</string>
+    <string name="Summary">Summary</string>
+</resources>
