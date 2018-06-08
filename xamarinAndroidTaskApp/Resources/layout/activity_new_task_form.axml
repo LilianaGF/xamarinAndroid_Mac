@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ff1e55e6">
+    <EditText
+        android:layout_width="243.5dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/textShortDescrip"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp"
+        android:hint="@string/ShortDescription" />
+    <EditText
+        android:inputType="textMultiLine"
+        android:layout_width="238.5dp"
+        android:layout_height="117.5dp"
+        android:id="@+id/textLongDescrip"
+        android:layout_below="@id/textShortDescrip"
+        android:layout_centerHorizontal="true"
+        android:hint="@string/LongDescription" />
+    <Switch
+        android:id="@+id/switchDone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textLongDescrip"
+        android:text="@string/Done"
+        android:textOn="********* 100 % **********"
+        android:textOff="----------- 0 % ----------"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="16dp" />
+    <SeekBar
+        android:layout_width="151.0dp"
+        android:layout_height="32dp"
+        android:id="@+id/seekBarPercentage"
+        android:layout_below="@id/switchDone"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="32dp" />
+    <TextView
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="44.0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/textPercentage"
+        android:text="@string/intPercentage"
+        android:layout_below="@id/seekBarPercentage"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="16dp"
+        android:background="#ffdfd5db"
+        android:foreground="#ff130c0c"
+        android:textColor="#ff261313" />
+    <Button
+        android:id="@+id/buttonCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Cancel"
+        android:textAllCaps="false"
+        android:layout_marginBottom="24dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="24dp" />
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Save"
+        android:textAllCaps="false"
+        android:layout_marginBottom="24dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="24dp" />
+</RelativeLayout>

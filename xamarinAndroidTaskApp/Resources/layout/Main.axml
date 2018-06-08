@@ -35,7 +35,7 @@
         android:text="@string/TaskToDo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="32dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/textSummary" />
     <TextView
@@ -43,7 +43,7 @@
         android:text="@string/TaskDoing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="32dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/textTaskToDo"
         android:layout_alignLeft="@id/textTaskToDo" />
@@ -52,7 +52,7 @@
         android:text="@string/TaskDone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="32dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/textTaskIng"
         android:layout_alignLeft="@id/textTaskToDo" />

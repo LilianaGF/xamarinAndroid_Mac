@@ -8,4 +8,10 @@
     <string name="TaskDoing">Task Doing</string>
     <string name="TaskDone">Task Done</string>
     <string name="Summary">Summary</string>
+    <string name="ShortDescription">Short description</string>
+    <string name="LongDescription">Long description</string>
+    <string name="Done">Done</string>
+    <string name="intPercentage">0%</string>
+    <string name="Cancel">Cancel</string>
+    <string name="Save">Save</string>
 </resources>

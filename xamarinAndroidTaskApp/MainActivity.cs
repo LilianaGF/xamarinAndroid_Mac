@@ -1,6 +1,11 @@
 ﻿using Android.App;
 using Android.Widget;
 using Android.OS;
+using Android.Util;
+using Android.Content;
+using Android.Views;
+using Android.Support.V7.App;
+using System;
 
 namespace xamarinAndroidTaskApp
 {
@@ -8,6 +13,9 @@ namespace xamarinAndroidTaskApp
     public class MainActivity : Activity
     {
 
+        readonly string tag = "LGF";
+
+        //----------------------------------------------------------------------------------------------
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -15,13 +23,25 @@ namespace xamarinAndroidTaskApp
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
-            Button button = FindViewById<Button>(Resource.Id.buttonNewTask);
+            Button buttonNewTask = FindViewById<Button>(Resource.Id.buttonNewTask);
 
-            button.Click += delegate { button.Text = $"{count++} clicks!"; };
+            buttonNewTask.Click += (sender, args) =>
+            {
+                ShowNewTaskForm(sender, args);
+            };
         }
 
+        //----------------------------------------------------------------------------------------------
+        public void ShowNewTaskForm(object sender, EventArgs e){
+            Log.Debug(tag, "click ButtonNewTask");
 
+            Intent intent = new Intent(this, typeof(NewTaskFormActivity));
+            StartActivity(intent);
+        }
+
+        //----------------------------------------------------------------------------------------------
 
     }
+    /*END-ACTIVITY*/
 }
 
