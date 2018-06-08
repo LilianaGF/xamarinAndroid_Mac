@@ -29,7 +29,8 @@
         android:textOff="----------- 0 % ----------"
         android:layout_alignParentRight="true"
         android:layout_marginRight="32dp"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"
+        android:thumb="@android:drawable/btn_star_big_on" />
     <SeekBar
         android:layout_width="151.0dp"
         android:layout_height="32dp"
@@ -37,7 +38,8 @@
         android:layout_below="@id/switchDone"
         android:layout_alignParentRight="true"
         android:layout_marginRight="24dp"
-        android:layout_marginTop="32dp" />
+        android:layout_marginTop="32dp"
+        android:max="100" />
     <TextView
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_width="44.0dp"
