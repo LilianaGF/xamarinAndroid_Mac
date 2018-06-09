@@ -4,6 +4,8 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Widget;
+using SQLite;
+using System.IO;
 
 namespace xamarinAndroidTaskApp
 {
@@ -12,7 +14,9 @@ namespace xamarinAndroidTaskApp
     {
 
         readonly string tag = "LGF";
-        int intPercentage = 0;
+        int intTaskProgress = 0;
+        //                                          //path string for the database file
+        string dbpath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "dbTest.db");
 
         //----------------------------------------------------------------------------------------------
         protected override void OnCreate(Bundle savedInstanceState)
@@ -38,22 +42,24 @@ namespace xamarinAndroidTaskApp
 
             TextView textPercentage = FindViewById<TextView>(Resource.Id.textPercentage);
 
-            String srtPercentage = "0%";
             bool boolDone = false;
+            int intSeekBarProgress = 0; 
+
 
             SeekBar seekBarPercentage = FindViewById<SeekBar>(Resource.Id.seekBarPercentage);
             seekBarPercentage.ProgressChanged += (object sender, SeekBar.ProgressChangedEventArgs e) =>
             {
-                intPercentage = e.Progress;
-                srtPercentage = intPercentage + "%";
-                Log.Debug(tag, "como esta done " + boolDone);
+                intSeekBarProgress = e.Progress;
+                Log.Debug(tag, "Done: " + boolDone);
                 if (boolDone)
                 {
-                    textPercentage.Text = string.Format("100%");
+                    textPercentage.Text = "100%";
+                    intTaskProgress = 100;
                 }
                 else
                 {
-                    textPercentage.Text = srtPercentage;
+                    textPercentage.Text = String.Format("{0}%",intSeekBarProgress);
+                    intTaskProgress = intSeekBarProgress;
                 }
             };
 
@@ -63,11 +69,13 @@ namespace xamarinAndroidTaskApp
                 if (e.IsChecked)
                 {
                     boolDone = true;
-                    textPercentage.Text = string.Format("100%");
+                    textPercentage.Text = "100%";
+                    intTaskProgress = 100;
                 }
                 else{
                     boolDone = false;
-                    textPercentage.Text = srtPercentage;
+                    textPercentage.Text = String.Format("{0}%",intSeekBarProgress);
+                    intTaskProgress = intSeekBarProgress;
                 }
             };
 
@@ -97,9 +105,33 @@ namespace xamarinAndroidTaskApp
             task.longDescription = longDescription.Text;
 
 
-            task.percentage = this.intPercentage;
+            task.percentage = this.intTaskProgress;
 
             Log.Debug(tag, "TASK: " + task.ToString());
+
+
+            //                                          //SQLite-net-pcl
+
+            //                                          //setup the db connection
+            var db = new SQLiteConnection(dbpath);
+            //                                          //setup a table
+            db.CreateTable<Task>();
+            //                                          //store the task in the table
+            db.Insert(task);
+
+            //                                          //acceder a los datos
+            var table = db.Table<Task>();
+            foreach(var row in table){
+                Task PersistenceTask = new Task(row.shortDescription, row.longDescription, row.percentage);
+                Log.Debug(tag, "FROM THE DB TASK: " + PersistenceTask.ToString());
+            }
+
+
+              
+
+
+
+
 
             Intent intent = new Intent(this, typeof(MainActivity));
             StartActivity(intent);
