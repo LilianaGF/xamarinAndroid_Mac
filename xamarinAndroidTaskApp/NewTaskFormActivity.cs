@@ -12,6 +12,7 @@ namespace xamarinAndroidTaskApp
     {
 
         readonly string tag = "LGF";
+        int intPercentage = 0;
 
         //----------------------------------------------------------------------------------------------
         protected override void OnCreate(Bundle savedInstanceState)
@@ -36,21 +37,22 @@ namespace xamarinAndroidTaskApp
             };
 
             TextView textPercentage = FindViewById<TextView>(Resource.Id.textPercentage);
-            string srtPercentage = "0%";
+
+            String srtPercentage = "0%";
             bool boolDone = false;
 
             SeekBar seekBarPercentage = FindViewById<SeekBar>(Resource.Id.seekBarPercentage);
             seekBarPercentage.ProgressChanged += (object sender, SeekBar.ProgressChangedEventArgs e) =>
             {
+                intPercentage = e.Progress;
+                srtPercentage = intPercentage + "%";
                 Log.Debug(tag, "como esta done " + boolDone);
                 if (boolDone)
                 {
-                    srtPercentage = string.Format("{0}%", e.Progress);
                     textPercentage.Text = string.Format("100%");
                 }
                 else
                 {
-                    srtPercentage = string.Format("{0}%", e.Progress);
                     textPercentage.Text = srtPercentage;
                 }
             };
@@ -85,6 +87,19 @@ namespace xamarinAndroidTaskApp
         public void SaveNewTask(object sender, EventArgs e)
         {
             Log.Debug(tag, "click ButtonSave");
+
+            Task task = new Task();
+
+            TextView shortDescription = FindViewById<TextView>(Resource.Id.textShortDescrip);
+            task.shortDescription = shortDescription.Text;
+
+            TextView longDescription = FindViewById<TextView>(Resource.Id.textLongDescrip);
+            task.longDescription = longDescription.Text;
+
+
+            task.percentage = this.intPercentage;
+
+            Log.Debug(tag, "TASK: " + task.ToString());
 
             Intent intent = new Intent(this, typeof(MainActivity));
             StartActivity(intent);
