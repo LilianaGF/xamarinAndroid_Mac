@@ -111,7 +111,6 @@ namespace xamarinAndroidTaskApp
 
 
             //                                          //SQLite-net-pcl
-
             //                                          //setup the db connection
             var db = new SQLiteConnection(dbpath);
             //                                          //setup a table
@@ -120,8 +119,8 @@ namespace xamarinAndroidTaskApp
             db.Insert(task);
 
             //                                          //acceder a los datos
-            var table = db.Table<Task>();
-            foreach(var row in table){
+            var tableTask = db.Table<Task>();
+            foreach(var row in tableTask){
                 Task PersistenceTask = new Task(row.shortDescription, row.longDescription, row.percentage);
                 Log.Debug(tag, "FROM THE DB TASK: " + PersistenceTask.ToString());
             }

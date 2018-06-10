@@ -14,4 +14,7 @@
     <string name="intPercentage">0%</string>
     <string name="Cancel">Cancel</string>
     <string name="Save">Save</string>
+    <string name="All">All</string>
+    <string name="ToDo">To Do</string>
+    <string name="Doing">Doing</string>
 </resources>
