@@ -7,44 +7,53 @@ using Android.Provider;
 using Android.App;
 using Java.Lang;
 using Android.Util;
-
-
+using Android.Support.V7;
+using System.IO;
+using Android.OS;
+using SQLite;
+using Android.Support.V7.Widget;
 namespace xamarinAndroidTaskApp
 {
-    public class ListTaskAdapter: BaseAdapter
+    public class ListTaskAdapter : RecyclerView.Adapter
     {
-        List<Task> listOfTask;
+        List<Task> listOfTasks;
 
-        public ListTaskAdapter(List<Task> listOfTask)
+        public ListTaskAdapter(List<Task> listOfTasks)
         {
-            this.listOfTask = listOfTask;
+            this.listOfTasks = listOfTasks;
         }
 
-        public override int Count {
-            get { return listOfTask.Count; }
-        }
-        public override long GetItemId(int position)
+        //-----------------------------------------------------------------------------------------------------------------
+        public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
-            throw new NotImplementedException();
-        }
-        public override Java.Lang.Object GetItem(int position)
-        {
-            throw new NotImplementedException();
-        }
-        public override View GetView(int position, View convertView, ViewGroup parent)
-        {
-
             LayoutInflater inflater = LayoutInflater.From(parent.Context);
-            var view = inflater.Inflate(Resource.Layout.single_task_item, parent, false);
+            View itemView = inflater.Inflate(Resource.Layout.single_task_item, parent, false);
 
-            var textView = view.FindViewById<TextView>(Resource.Id.taskItem);
-            Task task = listOfTask[position];
-            textView.Text = task.shortDescription + " " + task.percentage + "%"; 
-           
-            return view;
+            TaskHolder taskHolder = new TaskHolder(itemView);
+            return taskHolder;
+        }
 
+        //-----------------------------------------------------------------------------------------------------------------
+        public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
+        {
+
+            TaskHolder taskHolder = holder as TaskHolder;
+
+            Task task = listOfTasks[position];
+
+            var strTask = task.shortDescription + "    " +task.percentage + "%";
+            taskHolder.textView.Text = strTask;
 
         }
+
+        //------------------------------------------------------------------------------------------------------------------
+        public override int ItemCount
+        {
+            get { return listOfTasks.Count; }
+        }
+
+        //------------------------------------------------------------------------------------------------------------------
 
     }
 }
+/*END-ADAPTER*/

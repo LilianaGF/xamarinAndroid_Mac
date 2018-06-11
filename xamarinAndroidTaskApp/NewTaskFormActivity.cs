@@ -109,11 +109,10 @@ namespace xamarinAndroidTaskApp
 
             Log.Debug(tag, "TASK: " + task.ToString());
 
-
             //                                          //SQLite-net-pcl
             //                                          //setup the db connection
             var db = new SQLiteConnection(dbpath);
-            //                                          //setup a table
+            //                                          //setup a table, IF NOT EXISTT!
             db.CreateTable<Task>();
             //                                          //store the task in the table
             db.Insert(task);
@@ -124,13 +123,6 @@ namespace xamarinAndroidTaskApp
                 Task PersistenceTask = new Task(row.shortDescription, row.longDescription, row.percentage);
                 Log.Debug(tag, "FROM THE DB TASK: " + PersistenceTask.ToString());
             }
-
-
-              
-
-
-
-
 
             Intent intent = new Intent(this, typeof(MainActivity));
             StartActivity(intent);
