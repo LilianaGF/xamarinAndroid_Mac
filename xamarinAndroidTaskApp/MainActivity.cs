@@ -3,8 +3,7 @@ using Android.Widget;
 using Android.OS;
 using Android.Util;
 using Android.Content;
-using Android.Views;
-using Android.Support.V7.App;
+using Android.Support.Constraints;
 using System;
 
 namespace xamarinAndroidTaskApp

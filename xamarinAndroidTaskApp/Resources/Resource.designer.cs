@@ -2131,8 +2131,8 @@ namespace xamarinAndroidTaskApp
 			// aapt resource value: 0x7f070082
 			public const int buttonDone = 2131165314;
 			
-			// aapt resource value: 0x7f070084
-			public const int buttonNewTask = 2131165316;
+			// aapt resource value: 0x7f070087
+			public const int buttonNewTask = 2131165319;
 			
 			// aapt resource value: 0x7f07004f
 			public const int buttonPanel = 2131165263;
@@ -2140,8 +2140,8 @@ namespace xamarinAndroidTaskApp
 			// aapt resource value: 0x7f07007d
 			public const int buttonSave = 2131165309;
 			
-			// aapt resource value: 0x7f070083
-			public const int buttonShowAll = 2131165315;
+			// aapt resource value: 0x7f070088
+			public const int buttonShowAll = 2131165320;
 			
 			// aapt resource value: 0x7f070080
 			public const int buttonToDo = 2131165312;
@@ -2443,17 +2443,17 @@ namespace xamarinAndroidTaskApp
 			// aapt resource value: 0x7f070055
 			public const int textSpacerNoTitle = 2131165269;
 			
-			// aapt resource value: 0x7f070085
-			public const int textSummary = 2131165317;
-			
-			// aapt resource value: 0x7f070088
-			public const int textTaskDone = 2131165320;
-			
-			// aapt resource value: 0x7f070087
-			public const int textTaskIng = 2131165319;
+			// aapt resource value: 0x7f070083
+			public const int textSummary = 2131165315;
 			
 			// aapt resource value: 0x7f070086
-			public const int textTaskToDo = 2131165318;
+			public const int textTaskDone = 2131165318;
+			
+			// aapt resource value: 0x7f070085
+			public const int textTaskIng = 2131165317;
+			
+			// aapt resource value: 0x7f070084
+			public const int textTaskToDo = 2131165316;
 			
 			// aapt resource value: 0x7f070094
 			public const int time = 2131165332;
